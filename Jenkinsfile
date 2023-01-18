@@ -27,8 +27,8 @@ pipeline
                 {  
                     gv = load "script.groovy"
                     sh "npm --prefix ./api/. version patch"
-                    def package = readFile('./api/package.json')
-                    jsonPackage = JSON.parse(jsonString)
+                    def package = readFile("./api/package.json")
+                    def jsonPackage = JSON.parse(jsonString)
                     def package_name = jsonPackage.name
                     def version = jsonPackage.version
                     env.IMAGE_NAME="$version-$BUILD_NUMBER"
