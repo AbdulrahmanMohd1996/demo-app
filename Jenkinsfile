@@ -11,7 +11,7 @@ library identifier: 'jenkins-shared-lib@main', retriever: modernSCM(
      
 )
      
-def gv
+//def gv
 
 pipeline 
 {
@@ -27,7 +27,7 @@ pipeline
 
                 script
                 {  
-                    gv = load "script.groovy"
+                    //gv = load "script.groovy"
                     sh "npm --prefix ./api/. version patch"
                     def packageN = readFile("./api/package.json")
                     def jsonPackage = new JsonSlurper().parseText(packageN)
