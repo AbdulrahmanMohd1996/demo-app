@@ -48,7 +48,7 @@ pipeline
             {
                 script 
                 {
-                    sh "docker build -t ${PKG_NAME}:${VER} ."
+                    sh "docker build -t ${IMAGE_NAME}:${VER} ."
                 }
             }
 
