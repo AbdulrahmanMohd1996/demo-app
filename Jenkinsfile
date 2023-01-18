@@ -1,6 +1,8 @@
 #!/usr/bin/env groovy
 //@ Library('jenkins-shared-library')
 
+import groovy.json.JsonSlurper
+
 library identifier: 'jenkins-shared-lib@main', retriever: modernSCM(
     [$class: 'GitSCMSource',
      remote: 'https://gitlab.com/abdulrahman.mohd1996/jenkins-shared-library.git',
