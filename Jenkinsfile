@@ -90,7 +90,7 @@ pipeline
                         sh "git status"
                         sh "git branch"
                         sh "git config --list"
-                        
+                        //test
                         sh "git remote set-url origin 'https://${USERNAME}:${PASSWORD}@github.com/AbdulrahmanMohd1996/demo-app.git'"
                         sh "git add ."
                         sh "git commit -m 'from jenkins version json.xml'"
