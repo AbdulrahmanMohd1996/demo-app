@@ -31,8 +31,8 @@ pipeline
                     sh "npm --prefix ./api/. version patch"
                     def packageN = readFile("./api/package.json")
                     def jsonPackage = new JsonSlurper().parseText(packageN)
-                    def env.package_name = jsonPackage.name
-                    def env.version = jsonPackage.version
+                    env.PKG_NAME = jsonPackage.name
+                    env.VER = jsonPackage.version
                     env.IMAGE_NAME="$version-$BUILD_NUMBER"
 
 
@@ -48,7 +48,7 @@ pipeline
             {
                 script 
                 {
-                    sh "docker build -t ${package_name}:${version} ."
+                    sh "docker build -t ${PKG_NAME}:${VER} ."
                 }
             }
 
@@ -60,7 +60,7 @@ pipeline
             {
                 script 
                 {
-                    sh "docker push abdolee/${package_name}:${version}"
+                    sh "docker push abdolee/${PKG_NAME}:${VER}"
                 }
             }
         }
@@ -70,7 +70,7 @@ pipeline
             {
                 script 
                 {
-                        def dockerCommand= "docker run -d -p 3080:3080 abdolee/${package_name}:${version}"
+                        def dockerCommand= "docker run -d -p 3080:3080 abdolee/${PKG_NAME}:${VER}"
 
                         sshagent(['EC2-SERVER-KEY']) 
                         {
