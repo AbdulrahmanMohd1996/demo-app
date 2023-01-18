@@ -67,7 +67,8 @@ pipeline
             {
                 script 
                 {
-                        def dockerCommand= "docker run -d -p 3080:3080 abdolee\/${package_name}:${version}"
+                        def dockerCommand= "docker run -d -p 3080:3080 abdolee/${package_name}:${version}"
+
                         sshagent(['EC2-SERVER-KEY']) 
                         {
                             sh "ssh -o StrictHostKeyChecking=no ec2-user@34.253.46.29 '${dockerCommand}' "
@@ -90,7 +91,7 @@ pipeline
                         sh "git status"
                         sh "git branch"
                         sh "git config --list"
-                        //test
+
                         sh "git remote set-url origin 'https://${USERNAME}:${PASSWORD}@github.com/AbdulrahmanMohd1996/demo-app.git'"
                         sh "git add ."
                         sh "git commit -m 'from jenkins version json.xml'"
