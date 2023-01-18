@@ -31,8 +31,8 @@ pipeline
                     sh "npm --prefix ./api/. version patch"
                     def packageN = readFile("./api/package.json")
                     def jsonPackage = new JsonSlurper().parseText(packageN)
-                    env.PKG_NAME = jsonPackage.name
-                    env.VER = jsonPackage.version
+                    env.PKG_NAME = jsonPackage.PKG_NAME
+                    env.VER = jsonPackage.VER
                     env.IMAGE_NAME="$version-$BUILD_NUMBER"
 
 
