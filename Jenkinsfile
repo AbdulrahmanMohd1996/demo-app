@@ -32,7 +32,7 @@ pipeline
                     def packageN = readFile("./api/package.json")
                     def jsonPackage = new JsonSlurper().parseText(packageN)
                     env.PKG_NAME = jsonPackage.name
-                    env.VER = jsonPackage.version
+                    //env.VER = jsonPackage.version
                     env.IMAGE_NAME="$version-$BUILD_NUMBER"
 
 
