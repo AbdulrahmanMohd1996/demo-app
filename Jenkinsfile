@@ -33,7 +33,7 @@ pipeline
                     def jsonPackage = new JsonSlurper().parseText(packageN)
                     env.PKG_NAME = jsonPackage.name
                     env.VER = jsonPackage.version
-                    env.IMAGE_NAME="${VER}-${BUILD_NUMBER}"
+                    env.IMAGE_NAME="${PKG_NAME}"
 
 
                 }
@@ -48,8 +48,7 @@ pipeline
             {
                 script
                 {
-                    sh "docker build -t ${IMAGE_NAME}:${VER} ."
-                    
+                    sh "docker build -t abdolee/${IMAGE_NAME}:${VER}-${BUILD_NUMBER} ." 
                 }
             }
 
