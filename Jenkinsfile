@@ -74,7 +74,7 @@ pipeline
 
                         sshagent(['EC2-SERVER-KEY']) 
                         {
-                            sh "ssh -o StrictHostKeyChecking=no ec2-user@54.194.193.122 '${dockerCommand}' "
+                            sh "ssh -o StrictHostKeyChecking=no -i /root/pem_files/jenkins-server.pem ec2-user@54.194.193.122 '${dockerCommand}' "
                         }
                 }
             }
