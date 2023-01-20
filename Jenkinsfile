@@ -70,7 +70,7 @@ pipeline
             {
                 script 
                 {
-                        def dockerCommand= "docker run -d -p 3080:3080 abdolee/${PKG_NAME}:${VER}-${BUILD_NUMBER}"
+                        def dockerCommand= "docker run -d -p 3080:80 abdolee/${PKG_NAME}:${VER}-${BUILD_NUMBER}"
 
                         sshagent(['EC2-SERVER-KEY']) 
                         {
