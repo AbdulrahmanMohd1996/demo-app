@@ -60,7 +60,7 @@ pipeline
             {
                 script 
                 {
-                    sh "docker push abdolee/${PKG_NAME}:${VER}"
+                    sh "docker push abdolee/${PKG_NAME}:${VER}-${BUILD_NUMBER}"
                 }
             }
         }
@@ -70,11 +70,11 @@ pipeline
             {
                 script 
                 {
-                        def dockerCommand= "docker run -d -p 3080:3080 abdolee/${PKG_NAME}:${VER}"
+                        def dockerCommand= "docker run -d -p 3080:3080 abdolee/${PKG_NAME}:${VER}-${BUILD_NUMBER}s"
 
                         sshagent(['EC2-SERVER-KEY']) 
                         {
-                            sh "ssh -o StrictHostKeyChecking=no ec2-user@34.253.46.29 '${dockerCommand}' "
+                            sh "ssh -o StrictHostKeyChecking=no ec2-user@54.194.193.122 '${dockerCommand}' "
                         }
                 }
             }
