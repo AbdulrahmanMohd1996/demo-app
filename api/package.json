@@ -1,6 +1,6 @@
 {
   "name": "react-nodejs-example",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "example project react with nodejs",
   "main": "server.js",
   "scripts": {
